@@ -1,0 +1,199 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-transform: none;
+    list-style-type: none;
+}
+
+:root {
+    --primary: #1B4332;
+    --secondary: #B7EF44;
+    --tertiary: #F8F9F1;
+    --neutral: #2D312E;
+    --headline: "Hanken Grotesk", sans-serif;
+    --body: "Plus Jakarta Sans", sans-serif;
+    --label: font-family: "Geist", sans-serif;
+}
+
+html,
+body{
+    width: 100vw;
+    min-height: 100vh;
+    position: relative;
+    background-color: var(--tertiary);
+    overflow-x: hidden;
+}
+.interface {
+    padding: 0 1.1rem;
+}
+
+.header{
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(50px);
+
+    .container-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.5rem;
+        border: 1px solid black;
+
+        .logo {
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-family: var(--headline);
+            color: var(--primary);
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        .btn-menu-mobile {
+            font-size: 2rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        .menu-mobile{
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 0;
+            background-color: #F2FDDB;
+            z-index: 999;
+            padding: 0 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            overflow: hidden;
+            opacity: 0;
+            transition: height 1s cubic-bezier(0.5, 1.6, 0.4, 0.7) , opacity 1s ease, padding 1s ease;
+
+
+            .btn-close-mobile{
+                text-align: right;
+                font-size: 2rem;
+                cursor: pointer;
+
+                i {
+                    color: var(--primary);
+                }
+            }
+
+
+            ul {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 20px;
+
+                li > a{
+                    color: var(--primary);
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    font-size: 1.1rem;
+                    font-family: var(--label);
+                    letter-spacing: 1.5px;
+                    cursor: pointer;
+                    position: relative;
+                    
+
+                    &::after{
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        bottom: -2px;
+                        width: 100%;
+                        height: 2px;
+                        background-color: var(--neutral);
+                        transform: scaleX(0);
+                        transition: transform .5s ease-in-out;
+                        transform-origin: right;
+                    }
+
+                    &:hover::after {
+                        transform: scaleX(1);
+                        transform-origin: left;
+                    }
+
+                }
+            
+            }
+
+            .btn-header-mobile {
+                color: var(--primary);
+                width: 200px;
+                height: 50px;
+                border: 1px solid var(--neutral);
+                background-color: transparent;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-size: 1rem;
+                font-family: var(--label);
+                cursor: pointer;
+                position: relative;
+                border-radius: 15px;
+                overflow: hidden;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: var(--neutral);
+                    z-index: -1;
+                    transform: scaleY(0);
+                    transform-origin: bottom;
+                    transition: transform 1.2s cubic-bezier(0.5, 1.6, 0.4, 0.7);
+                }
+
+                &:hover::before {
+                    transform: scaleX(1);
+                    transform-origin: top;
+                }
+
+                &:hover {
+                    color: var(--tertiary);
+                }
+            }
+
+            &.activeMenu {
+                height: 40vh;
+                padding: 25px;
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+            }
+
+            &.activeMenu~.overlay{
+                display: block;
+            }
+        
+        }
+
+        .overlay{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #0000006c;
+            z-index: 888;
+            display: none;
+        }
+    
+    }
+
+}
+
+
