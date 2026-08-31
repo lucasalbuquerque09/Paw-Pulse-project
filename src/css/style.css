@@ -125,7 +125,7 @@ a:hover::after {
 h2 {
     color: var(--color1);
     font-family: var(--primarySource);
-    font-size: 2.1rem;
+    font-size: clamp(1.3rem, 6vw, 4rem);
     letter-spacing: 1px;
     line-height: 3rem;
     font-weight: 900;
@@ -134,7 +134,7 @@ h2 {
 p {
     color: var(--color4);
     font-family: var(--tertiarySource);
-    font-size: 1rem;
+    font-size: clamp(1rem, 3vw, 1.25rem);
     text-align: justify;
     line-height: 1.8rem;
     letter-spacing: 1px;
@@ -252,15 +252,18 @@ p {
                 justify-content: center;
                 gap: 20px;
 
-                li a {
-                    color: var(--color4);
-                    text-decoration: none;
-                    text-transform: uppercase;
-                    font-size: 1.1rem;
-                    font-family: var(--secondarySource);
-                    letter-spacing: 1.5px;
-                    cursor: pointer;
-                    position: relative;
+                li {
+
+                    a {
+                        color: var(--color4);
+                        text-decoration: none;
+                        text-transform: uppercase;
+                        font-size: clamp(1rem, 3vw, 1.25rem);
+                        font-family: var(--secondarySource);
+                        letter-spacing: 1.5px;
+                        cursor: pointer;
+                        position: relative;
+                    }
 
                 }
 
@@ -334,7 +337,7 @@ p {
             width: fit-content;
             padding: 10px;
             border-radius: 30px;
-            font-size: 14px;
+            font-size: clamp(0.875rem, 2.5vw, 1.25rem);
             font-weight: 600;
             font-family: var(--secondarySource);
             letter-spacing: 0.07px;
@@ -342,10 +345,10 @@ p {
 
         h1 {
             color: var(--color1);
-            font-size: 2.5rem;
+            font-size: clamp(1.5rem, 6vw, 4rem);
             font-weight: 900;
             font-family: var(--primarySource);
-            line-height: 4rem;
+            line-height: 3rem;
             letter-spacing: 1.3px;
 
         }
@@ -397,7 +400,7 @@ p {
                     padding: 1rem;
                     border-radius: 50%;
                     color: var(--color2);
-                    font-size: 1.4rem;
+                    font-size: clamp(1.25rem, 3vw, 1.5rem);
                     background-color: var(--color5);
                 }
 
@@ -405,7 +408,7 @@ p {
                     color: var(--color1);
                     font-family: var(--secondarySource);
                     letter-spacing: 1px;
-                    font-size: 1.5rem;
+                    font-size: clamp(1.25rem, 3vw, 1.25rem);
                     font-weight: 600;
                 }
 
@@ -414,7 +417,7 @@ p {
                     font-family: var(--secondarySource);
                     text-decoration: none;
                     letter-spacing: 1px;
-                    font-size: 12px;
+                    font-size: clamp(0.75rem, 2.5vw, 1.25rem);
                     font-weight: 700;
                     cursor: pointer;
                     position: relative;
@@ -425,7 +428,7 @@ p {
                     }
 
                     i {
-                        font-size: 15px;
+                        font-size: clamp(0.9375rem, 2.5vw, 1.25rem);
                     }
 
                 }
@@ -443,14 +446,6 @@ p {
     /* Description Our Philosophy */
     .description-Our-Philosophy {
 
-        h2 {
-            color: var(--color1);
-            font-family: var(--primarySource);
-            font-size: 2.1rem;
-            letter-spacing: 1px;
-            line-height: 3rem;
-            font-weight: 900;
-        }
 
         /* List Our Philosophy  */
         ul {
@@ -466,11 +461,11 @@ p {
 
                 i {
                     color: var(--color2);
-                    font-size: 1.2rem;
+                    font-size: clamp(1.25rem, 3vw, 1.5rem);
                 }
 
                 p {
-                    font-size: 14px;
+                    font-size: clamp(0.875rem, 2.5vw, 1.25rem);
                     opacity: .7;
                 }
             }
@@ -494,7 +489,7 @@ p {
 
             i {
                 color: var(--color7);
-                font-size: 2.1rem;
+                font-size: clamp(1.5rem, 6vw, 4rem);
             }
 
             h2 {
@@ -505,7 +500,7 @@ p {
             p {
                 color: var(--color3);
                 font-family: var(--tertiarySource);
-                font-size: 14px;
+                font-size: clamp(0.875rem, 2.5vw, 1.25rem);
                 opacity: .7;
             }
 
@@ -524,7 +519,7 @@ p {
                     outline: none;
                     border: none;
                     border-radius: 30px;
-                    font-size: 1rem;
+                    font-size: clamp(1rem, 3vw, 1.25rem);
                 }
 
 
@@ -562,7 +557,7 @@ p {
         p {
             color: var(--color3);
             font-family: var(--tertiarySource);
-            font-size: 14px;
+            font-size: clamp(0.875rem, 2.5vw, 1.25rem);
             opacity: .7;
         }
 
@@ -573,7 +568,7 @@ p {
                 color: var(--color7);
                 font-family: var(--secondarySource);
                 letter-spacing: 1px;
-                font-size: 1rem;
+                font-size: clamp(1.2rem, 3vw, 1.25rem);
                 margin-bottom: 30px;
             }
 
