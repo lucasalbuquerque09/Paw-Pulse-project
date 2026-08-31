@@ -1,11 +1,14 @@
 /* Reset */
-* {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-transform: none;
     list-style-type: none;
 }
+
 /* End Reset */
 
 /* Variables */
@@ -14,7 +17,7 @@
     --color2: #496800;
     --color3: #F8F9F1;
     --color4: #414844;
-    --color5: #efffcd;
+    --color5: #FFEEC8;
     --color6: #1B4332;
     --color7: #BCF549;
 
@@ -22,6 +25,7 @@
     --secondarySource: "Geist", sans-serif;
     --tertiarySource: "Hanken Grotesk", sans-serif;
 }
+
 /* End Variables */
 
 /* global styles*/
@@ -65,19 +69,22 @@ button {
     border-radius: 15px;
     letter-spacing: 1px;
     font-weight: 600;
-    border: 1px solid var(--color4);
     cursor: pointer;
-    background-color: var(--color5);
+    background-color: var(--color3);
+    border: 1px solid var(--color4);
     transition: all .3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 
     a {
         display: block;
-        color: var(--color2);
+        color: var(--color4);
         text-decoration: none;
         font-family: var(--secondarySource);
+        font-weight: 700;
     }
 
     &:hover {
+        background-color: var(--color5);
+        border: 1px solid var(--color5);
         transform: translateY(-3px);
     }
 }
@@ -90,7 +97,7 @@ a::after {
     bottom: -2px;
     width: 100%;
     height: 2px;
-    background-color: var(--color2);
+    background-color: var(--color4);
     transform: scaleX(0);
     transition: transform .5s ease-in-out;
     transform-origin: right;
@@ -134,6 +141,20 @@ p {
     opacity: .8;
 }
 
+/* Reveal Elements */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    margin-bottom: 30px;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* End Reveal Elements */
 
 .container-img {
     display: flex;
@@ -150,6 +171,7 @@ p {
         border-radius: 20px;
     }
 }
+
 /* End Container Image */
 
 
@@ -161,14 +183,14 @@ p {
     top: 0;
     z-index: 50;
     backdrop-filter: blur(50px);
-    
+
     /* Container header */
     .container-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 1.2rem;
-        
+
         /* Logo */
         .logo {
             text-decoration: none;
@@ -178,9 +200,15 @@ p {
             font-weight: 900;
             letter-spacing: 1px;
             cursor: pointer;
+
+            &:hover::after {
+                transform: scaleX(0);
+            }
+
         }
+
         /* End Logo */
-        
+
         /* Menu Mobile */
         .btn-menu-mobile {
             font-size: 2rem;
@@ -251,31 +279,7 @@ p {
                 font-weight: 500;
                 cursor: pointer;
                 position: relative;
-                border-radius: 0;
 
-                &::before {
-                    content: "";
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background-color: var(--color4);
-                    z-index: -1;
-                    transform: scaleY(0);
-                    transform-origin: bottom;
-                    transition: transform 1.2s cubic-bezier(0.5, 1.6, 0.4, 0.7);
-                }
-
-                &:hover::before {
-                    transform: scaleX(1);
-
-                }
-
-                &:hover {
-                    color: var(--color3);
-                    transform: translateY(0)
-                }
             }
 
             &.activeMenu {
@@ -284,6 +288,8 @@ p {
                 opacity: 1;
                 visibility: visible;
                 pointer-events: auto;
+                overflow-y: auto;
+                overflow-x: hidden;
             }
 
             &.activeMenu~.overlay {
@@ -302,12 +308,15 @@ p {
             z-index: 888;
             display: none;
         }
+
         /* End Overlay */
 
     }
+
     /* End Header */
 
 }
+
 /* End Header */
 
 /* Main Container */
@@ -355,8 +364,9 @@ p {
                 transform-origin: none;
             }
         }
-        
+
     }
+
     /* End Description hero */
 
 
@@ -410,6 +420,10 @@ p {
                     position: relative;
                     width: fit-content;
 
+                    &::after {
+                        background-color: var(--color2);
+                    }
+
                     i {
                         font-size: 15px;
                     }
@@ -422,6 +436,7 @@ p {
             }
         }
     }
+
     /* End Description Services */
 
 
@@ -436,6 +451,7 @@ p {
             line-height: 3rem;
             font-weight: 900;
         }
+
         /* List Our Philosophy  */
         ul {
             display: flex;
@@ -459,14 +475,16 @@ p {
                 }
             }
         }
+
         /* End Our Philosophy */
     }
+
     /* End Description Our Philosophy */
 
     /* Container Wellness Circle */
     .container-wellness-circle {
         margin-bottom: 0;
-        
+
         /* Description Wellness Circle */
         .description-wellness-circle {
             align-items: center;
@@ -511,13 +529,17 @@ p {
 
 
             }
+
             /* End Form Wellness Circle */
         }
+
         /* End Description Wellness Circle */
     }
+
     /* End Container Wellness Circle */
 
 }
+
 /* End Main */
 
 /* Container Footer */
@@ -525,6 +547,7 @@ p {
     background-color: var(--color1);
     height: 100%;
     margin-bottom: 0;
+    margin-top: -31px;
     padding: 5rem 1.5rem;
     overflow-x: hidden;
 
@@ -559,19 +582,25 @@ p {
                 flex-direction: column;
                 gap: 20px;
 
-                li a {
-                    text-decoration: none;
-                    color: var(--color3);
-                    position: relative;
+                li {
 
-                    a::after {
-                        background-color: var(--color7);
+                    a {
+                        text-decoration: none;
+                        color: var(--color3);
+                        position: relative;
+
+                        &::after {
+                            background-color: var(--color7);
+                        }
                     }
+
                 }
             }
         }
+
         /* End Navigation Footer */
     }
+
     /* End Description Footer */
 
     /* Copyright */
@@ -587,6 +616,8 @@ p {
             opacity: .5;
         }
     }
+
     /* End Copyright */
 }
+
 /* End Container Footer */
