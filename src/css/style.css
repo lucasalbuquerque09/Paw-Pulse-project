@@ -17,7 +17,7 @@
     --color2: #496800;
     --color3: #F8F9F1;
     --color4: #414844;
-    --color5: #FFEEC8;
+    --color5: #f8eecc;
     --color6: #1B4332;
     --color7: #BCF549;
 
@@ -329,7 +329,7 @@ p {
     .description-wrapper {
 
         span {
-            color: var(--color2);
+            color: var(--color4);
             background-color: var(--color5);
             width: fit-content;
             padding: 10px;
